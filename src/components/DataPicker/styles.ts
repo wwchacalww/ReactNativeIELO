@@ -1,8 +1,8 @@
-import styled, { DefaultTheme } from "styled-components/native";
+import styled, {DefaultTheme} from "styled-components/native";
 import { MaterialIcons} from '@expo/vector-icons';
-import { Picker } from "@react-native-picker/picker";
 
-export const Container = styled.View`
+
+export const Container = styled.TouchableOpacity`
   width: 100%;
   height: 60px;
   margin-bottom: 18px;
@@ -14,11 +14,12 @@ export const Container = styled.View`
   flex-direction: row;
   align-items: center;
 `;
-export const SelectInput = styled(Picker)`
+
+export const Text = styled.Text`
   flex: 1;
-  color: #6c6c80;
-  font-size: 16px;
-  font-family: ${({theme}:{theme: DefaultTheme}) => theme.FONT_FAMILY.OPEN_REGULAR};
+  color: ${({theme}:{theme: DefaultTheme}) => theme.COLORS.GRAY_300};
+  font-size: ${({theme}:{theme: DefaultTheme}) => theme.FONT_SIZE.MD}px;
+  font-family: ${({theme}:{theme: DefaultTheme}) => theme.FONT_FAMILY.OPEN_REGULAR};;
 `;
 
 export const Icon = styled(MaterialIcons)`

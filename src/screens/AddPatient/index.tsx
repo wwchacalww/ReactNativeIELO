@@ -5,17 +5,17 @@ import { ScrollView } from "react-native";
 import { Button } from "@components/Button";
 import { useState } from "react";
 import { Select } from "@components/Select";
-
+import { DataPicker } from "@components/DataPicker";
 
 export function AddPatient() {
-  const [value, setValue] = useState("")
+  const [value, setValue] = useState("");
+  const [date, setDate] = useState(new Date());
   const items = [
     { label : "Forma de Pagamento", value:""},
     { label : "Particular", value:"particular"},
     { label : "INAS-GDF Saúde", value:"inas-gdf-saude"},
     { label : "Amil", value:"amil"},
-
-  ]
+  ];
   return(
     <Container>
       <Header title="novo paciente"/>
@@ -26,8 +26,13 @@ export function AddPatient() {
         >
           <Input icon="person" placeholder="Nome" />
           <Input icon="mail" placeholder="E-mail" keyboardType="email-address" />
-          <Input icon="calendar-month" placeholder="Data de Nascimento dd/mm/YYYY" />
-          <Input icon="dialpad" placeholder="CPF" />
+          <DataPicker 
+            icon="calendar-month"  
+            text={"Data de Nascimento: "+date.toLocaleDateString('pt-BR')}
+            date={date}
+            setDate={setDate}
+          />
+          <Input icon="dialpad" placeholder="CPF" keyboardType="numeric" />
           <Input icon="home" placeholder="Endereço" />
           <Input icon="send-to-mobile" placeholder="Celular" />
           <Input icon="assignment-ind" placeholder="Responsável" />
