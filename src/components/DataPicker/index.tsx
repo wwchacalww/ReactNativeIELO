@@ -8,10 +8,11 @@ type Props = TextProps & {
   text: string;
   date: Date;
   setDate: React.Dispatch<React.SetStateAction<Date>>
+  mode?: "date" | "time";
 }
 
-export function DataPicker({icon, text, date, setDate,...rest}: Props) {
-
+export function DataPicker({icon, text, date, mode = 'date', setDate,...rest}: Props) {
+  
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate;
     setDate(currentDate);
@@ -28,11 +29,15 @@ export function DataPicker({icon, text, date, setDate,...rest}: Props) {
   };
 
   return (
-    <Container onPress={() => showMode('date')}>
+    <Container onPress={() => showMode(mode)}>
       <Icon name={icon} size={32} />
 
       <Text {...rest}>
-        {text}
+        {
+          mode === 'date' ? 
+            `${text} (${date.toLocaleDateString()})` :
+            `${text} (${date.toLocaleString()})`
+        }
       </Text>
     </Container>
   )
