@@ -4,6 +4,7 @@ import { CardResume } from "@components/CardResume";
 import { NavBarButtonsSelectDay } from "@components/NavBarButtonsSelectDay";
 import { AppointmentsDay } from "@components/AppointmentsDay";
 import { Button } from "@components/Button";
+import { useNavigation } from "@react-navigation/native";
 
 type Props = {
   selected: boolean;
@@ -92,6 +93,10 @@ export function ControlPanel() {
       patient_name: 'Totoro'
     },
   ];
+  const navigation = useNavigation();
+  function handleAppointment() {
+    navigation.navigate("appointment");
+  }
   return (
     <Container>
       <Header title="Painel de Controle" />
@@ -99,7 +104,7 @@ export function ControlPanel() {
         <CardResume qnt={13} title="25 OUT 2024" />
         <NavBarButtonsSelectDay props={dayWeeks} />
         <AppointmentsDay props={appointments} />
-        <Button title="Agendar" />
+        <Button title="Agendar" onPress={handleAppointment} />
       </Content>
     </Container>
   );

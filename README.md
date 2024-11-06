@@ -25,3 +25,9 @@ Repositório de estudo do curso Rocketseat - React Native
  - [X] Select
  - [X] Datepicker
  - [ ] Text
+
+## Navegação
+ - [X] Instalar Stack Navigator
+ - [X] Estruturar navegação
+ - [X] Tipar as rotas
+ - [X] Utilizar o SafeAreaView
