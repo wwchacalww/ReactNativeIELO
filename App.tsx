@@ -1,6 +1,6 @@
 import { Arima_400Regular, Arima_700Bold, useFonts } from '@expo-google-fonts/arima';
 import { OpenSans_400Regular, OpenSans_700Bold } from '@expo-google-fonts/open-sans';
-import { Apointment } from '@screens/Apointment';
+import { Routes } from '@routes/index';
 import theme from '@theme/index';
 import { StatusBar } from 'react-native';
 import { Text } from 'react-native';
@@ -15,7 +15,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      { ariLoaded ? <Apointment /> : <Text>Carregando...</Text>}
+      { ariLoaded ? <Routes /> : <Text>Carregando...</Text>}
     </ThemeProvider>
   );
 }

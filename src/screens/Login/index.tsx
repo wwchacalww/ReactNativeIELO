@@ -2,8 +2,13 @@ import SvgComponent from "@assets/LogoBlue";
 import { Container, Title } from "./style";
 import { Input } from "@components/Input";
 import { Button } from "@components/Button";
+import { useNavigation } from "@react-navigation/native";
 
 export function Login() {
+  const navigation = useNavigation();
+  function handleLogin() {
+    navigation.navigate("controlPainel");
+  }
   return (
     <Container>
       <SvgComponent 
@@ -13,7 +18,7 @@ export function Login() {
       <Title>Faça o seu login</Title>
       <Input icon="mail-outline" placeholder="E-mail" keyboardType="email-address" />
       <Input icon="lock-outline" placeholder="Senha" textContentType="password" secureTextEntry />
-      <Button title="Entrar" style={{marginTop: 8}} />
+      <Button title="Entrar" onPress={handleLogin} style={{marginTop: 8}} />
     </Container>
   )
 }

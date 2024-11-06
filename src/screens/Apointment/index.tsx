@@ -7,7 +7,7 @@ import { useState } from "react";
 import { Select } from "@components/Select";
 import { DataPicker } from "@components/DataPicker";
 
-export function Apointment() {
+export function Appointment() {
   const [pros, setPros] = useState("");
   const [patient, setPatient] = useState("");
   const [local, setLocal] = useState("");
